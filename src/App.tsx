@@ -63,6 +63,21 @@ const App: React.FC = () => {
       <table>
         <thead>
           <tr>
+            <td>column00</td>
+            <td>column01</td>
+            <td>column02</td>
+            <td>column03</td>
+            <td>column04</td>
+            <td>column05</td>
+            <td>column06</td>
+            <td>column07</td>
+            <td>column08</td>
+            <td>column09</td>
+            <td>column10</td>
+            <td>column11</td>
+            <td>column12</td>
+            <td>column13</td>
+            <td>column14</td>
           </tr>
         </thead>
         <tbody>
