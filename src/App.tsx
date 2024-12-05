@@ -8,6 +8,8 @@ const App: React.FC = () => {
   const [connection, setConnection] = useState<any | null>(null);
   const { value: db, loading, error } = useInitializedDuckDB("my_table");
 
+  const [sql, setSqlText] = useState<string>("SELECT * FROM my_table where column07 = '浜松市中央区'");
+
   // DuckDB の接続を初期化
   useEffect(() => {
     if (db) {
@@ -21,6 +23,10 @@ const App: React.FC = () => {
     }
   }, [db]);
 
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSqlText(e.target.value);
+  }
+
   const runQuery = async () => {
     if (!db) {
       alert("Initialize DuckDB first!");
@@ -29,9 +35,10 @@ const App: React.FC = () => {
 
     try {
       // Arrow フォーマットで結果を取得
-      const queryResult: Table = await connection.query("SELECT * FROM my_table where column07 = '浜松市中央区'");
-
+      const queryResult: Table = await connection.query(sql);
       const resultJson = JSON.parse(queryResult.toString());
+
+      console.log("query by:", sql);
       console.log(resultJson);
       setResult(resultJson);
     } catch (error) {
@@ -46,6 +53,8 @@ const App: React.FC = () => {
       {loading && <p>Loading DuckDB...</p>}
       {error && <p>Error loading DuckDB: {error.message}</p>}
 
+      <label>SQL</label>
+      <textarea rows="5" cols="33" onChange={ handleTextareaChange }>{ sql }</textarea>
 
       <button onClick={runQuery}>Run SQL Query</button>
 
