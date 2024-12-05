@@ -54,13 +54,13 @@ const App: React.FC = () => {
       {error && <p>Error loading DuckDB: {error.message}</p>}
 
       <label>SQL</label>
-      <textarea rows="5" cols="33" onChange={ handleTextareaChange }>{ sql }</textarea>
+      <textarea onChange={ handleTextareaChange }>{ sql }</textarea>
 
       <button onClick={runQuery}>Run SQL Query</button>
 
       <h2>Query Result:</h2>
 
-      <table border="1">
+      <table>
         <thead>
           <tr>
           </tr>
