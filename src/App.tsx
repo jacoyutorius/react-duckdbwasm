@@ -6,9 +6,9 @@ import { useInitializedDuckDB } from "./useInitializedDuckDB.ts";
 const App: React.FC = () => {
   const [result, setResult] = useState<any>([]);
   const [connection, setConnection] = useState<any | null>(null);
-  const { value: db, loading, error } = useInitializedDuckDB("my_table");
+  const { value: db, loading, error } = useInitializedDuckDB("ken_all");
 
-  const [sql, setSqlText] = useState<string>("SELECT * FROM my_table where column07 = '浜松市中央区'");
+  const [sql, setSqlText] = useState<string>("SELECT * FROM ken_all where column07 = '浜松市中央区'");
 
   // DuckDB の接続を初期化
   useEffect(() => {
@@ -48,7 +48,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>React + DuckDB WASM Kit</h1>
+      <h1>React + DuckDB wasm kit</h1>
 
       {loading && <p>Loading DuckDB...</p>}
       {error && <p>Error loading DuckDB: {error.message}</p>}
