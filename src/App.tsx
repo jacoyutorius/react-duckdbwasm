@@ -81,9 +81,9 @@ const App: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {result.map((row, idx) => (
+          {result.map((row: any, idx: number) => (
             <tr key={idx}>
-              {Object.values(row).map((value, colIdx) => (
+              {Object.values(row).map((value: any, colIdx: any) => (
                 <td key={colIdx}>{ value }</td>
               ))}
             </tr>
