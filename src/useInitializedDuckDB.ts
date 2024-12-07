@@ -1,7 +1,7 @@
 import { type AsyncDuckDB, insertCSV, useDuckDb } from "duckdb-wasm-kit";
 import { useAsync } from "react-use";
 
-const DATA_CSV_FILE_PATH = "http://localhost:5173/src/utf_ken_all.csv";
+const DATA_CSV_FILE_PATH = "https://main.dmkvg38353b2t.amplifyapp.com/src/utf_ken_all.csv";
 
 export declare type AsyncState<T> =
   | {
